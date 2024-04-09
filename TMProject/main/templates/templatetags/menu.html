@@ -2,14 +2,19 @@
     <div>Failed to render the menu</div>
 {% else %}
 {% load menu %}
+{{a}}
     {% with head=nodes|first %}
         <div style="border: 5px solid black;">
-            <a href="{% url "{{ head.url_name }}" %}">{{ head.display_name }}</a>
-        </div>
-        <div style="margin-left:10px; border: 3px solid gray;">
-            {% for child in head.children %}
-                {% render_menu_child child %}
-            {% endfor %}
+            <div>
+                {% with url_name=head.url_name %}
+                    <a href="{% url url_name %}">{{ head.display_name }}</a>
+                {% endwith %}
+            </div>
+            <div style="margin-left:10px; border: 3px solid gray;">
+                {% for child in head.children.all %}
+                    {% render_menu_child request child %}
+                {% endfor %}
+            </div>
         </div>
     {% endwith %}
 {% endif %}

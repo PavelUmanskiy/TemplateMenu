@@ -3,14 +3,17 @@ from django.urls import path
 from .views import (
     index_view,
     example_view,
-    example_detail_view
 )
 
 
 urlpatterns = [
-    path('home/', index_view, name='index'),
-    path('home/profile/', example_view, name='profile'),
-    path('home/contacts/', example_view, name='contacts'),
-    path('home/products/', example_view, name='products'),
-    path('home/products/<int:pk>/', example_detail_view, name='product_detail'),    
+    path('main/', index_view, name='index'),
+    path('main/profile/', example_view, name='profile'),
+    path('main/profile/settings/', example_view, name='settings'),
+    path('main/profile/settings/privacy/', example_view, name='privacy'),
+    path('main/profile/settings/personal-info/', example_view, name='personal'),
+    path('main/profile/photos/', example_view, name='photos'),
+    path('main/profile/other/', example_view, name='other'),
+    path('main/contacts/', example_view, name='contacts'),
+    path('main/products/', example_view, name='products'),  
 ]

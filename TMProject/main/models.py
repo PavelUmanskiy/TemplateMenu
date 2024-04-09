@@ -21,7 +21,11 @@ class MenuNode(models.Model):
     is_head = models.BooleanField(default=False)
     display_name = models.CharField(max_length=128, default='Default Node')
     url_name = models.CharField(max_length=256, default='index')
-    children = models.ManyToManyField('MenuNode', related_name='parent')
+    children = models.ManyToManyField(
+        'MenuNode',
+        related_name='parent',
+        blank=True
+    )
     
     def __str__(self) -> str:
         return self.display_name

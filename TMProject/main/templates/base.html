@@ -6,6 +6,9 @@
     <title>UmanskiyPavel</title>
 </head>
 <body>
+    {% load menu %}
+    {% render_menu request "Test menu 1" %}
+    This page url: {{ request.path }}
     {% block body %}
     {% endblock body %}    
 </body>

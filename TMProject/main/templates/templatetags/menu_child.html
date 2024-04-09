@@ -1,8 +1,16 @@
 <div style="border: 3px solid silver;">
-    <a href="{{ child.url_name }}">{{ child.display_name }}</a>
+    {% load menu %}
+    {% with url_name=child.url_name %}
+        <a href="{% url url_name %}">{{ child.display_name }}</a>
+    {% endwith %}
     <div style="margin-left: 10px;">
-        {% for grandchild in child.children %}
-            {% render_menu_child grandchild %}
-        {% endfor %}
+        {% url child.url_name as child_url %}
+        {% url_in_uri child_url request.build_absolute_uri as display_grandchildren%}
+        {% if display_grandchildren %}
+            {% for grandchild in child.children.all %}
+                {% render_menu_child request grandchild %}
+            {% endfor %}
+        {% endif %}
+
     </div>
 </div>
