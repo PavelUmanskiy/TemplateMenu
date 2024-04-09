@@ -4,6 +4,9 @@ from django.db import models
 class Menu(models.Model):
     name = models.CharField(max_length=128, default='Default Menu Name')
 
+    def __str__(self):
+        return self.name
+    
 
 class MenuNode(models.Model):
     menu = models.ForeignKey(
@@ -12,9 +15,8 @@ class MenuNode(models.Model):
             related_name='nodes'
     )
     display_name = models.CharField(max_length=128, default='Default Node')
-    url = models.URLField(default='/')
+    url_name = models.CharField(max_length=256, default='index')
     children = models.ManyToManyField('MenuNode', related_name='parent')
     
     def __str__(self) -> str:
         return self.display_name
-    
