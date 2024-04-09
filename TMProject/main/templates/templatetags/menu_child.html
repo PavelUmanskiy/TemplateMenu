@@ -1,0 +1,8 @@
+<div style="border: 3px solid silver;">
+    <a href="{{ child.url_name }}">{{ child.display_name }}</a>
+    <div style="margin-left: 10px;">
+        {% for grandchild in child.children %}
+            {% render_menu_child grandchild %}
+        {% endfor %}
+    </div>
+</div>
