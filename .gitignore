@@ -1,3 +1,4 @@
 t_menu/
 .env
 __pycache__/
+migrations/
