@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def index_view(request):
-    return render(request, 'index.html', context={'a': 1})
+    return render(request, 'index.html')
 
 
 def example_view(request):

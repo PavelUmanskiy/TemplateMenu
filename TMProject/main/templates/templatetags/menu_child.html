@@ -7,8 +7,8 @@
         {% url child.url_name as child_url %}
         {% url_in_uri child_url request.build_absolute_uri as display_grandchildren%}
         {% if display_grandchildren %}
-            {% for grandchild in child.children.all %}
-                {% render_menu_child request grandchild %}
+            {% for grandchild in child.all_children %}
+                {% render_menu_child request nodes grandchild %}
             {% endfor %}
         {% endif %}
 
