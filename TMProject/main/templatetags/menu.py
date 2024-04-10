@@ -7,7 +7,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('templatetags/menu.html')
-def render_menu(request, menu_name: str) -> dict | None:
+def draw_menu(request, menu_name: str) -> dict | None:
     try:
         nodes = (
             MenuNode.objects
@@ -32,8 +32,8 @@ def render_menu(request, menu_name: str) -> dict | None:
 
 
 @register.inclusion_tag('templatetags/menu_child.html')
-def render_menu_child(request, nodes, child: MenuNode) -> dict:
-    return {'child': child, 'request': request, 'nodes': nodes}
+def render_menu_child(request, child: MenuNode) -> dict:
+    return {'child': child, 'request': request}
 
 
 @register.simple_tag

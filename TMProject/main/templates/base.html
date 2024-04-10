@@ -7,7 +7,11 @@
 </head>
 <body>
     {% load menu %}
-    {% render_menu request "Test Menu 1" %}
+    Первое меню:<br>
+    {% draw_menu request "Test Menu 1" %}
+    Второе меню:<br>
+    {% draw_menu request "Test Menu 2" %}
+
     This page url: {{ request.path }}
     {% block body %}
     {% endblock body %}    

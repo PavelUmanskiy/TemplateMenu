@@ -1,24 +1,15 @@
-import os
-
 from pathlib import Path
-from dotenv import load_dotenv
-
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-DOTENV_PATH = BASE_DIR / 'TMProject/.env'
-
-if DOTENV_PATH.exists():
-    load_dotenv(DOTENV_PATH)
-else:
-    raise FileNotFoundError(".env not found")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("MAIN_SECRET_KEY")
+# Секрет не вырезан для простоты проверки
+SECRET_KEY = 'django-insecure-l#-*12u4w1t^_z$b5^(q7+0arik&f3t24d5$flduj@z606wyqe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
