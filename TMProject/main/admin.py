@@ -17,3 +17,9 @@ class MenuNodeAdmin(admin.ModelAdmin):
         'menu_name',
     )
     list_display_links = ('id',)
+    search_fields = (
+        'display_name', 
+        'url_name', 
+        'menu_name',
+    )
+    list_filter = ('menu_name',)
